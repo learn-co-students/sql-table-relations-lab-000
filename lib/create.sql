@@ -1,0 +1,24 @@
+CREATE TABLE schools(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT, 
+	rating INTEGER, 
+	year_established INTEGER
+	);
+
+CREATE TABLE courses(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	school_id INTEGER REFERENCES schools,
+	name TEXT
+	);
+
+CREATE TABLE students(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT,
+	age INTEGER
+	);
+
+CREATE TABLE enrollments(
+	student_id INTEGER REFERENCES students,
+	course_id INTEGER REFERENCES courses,
+	id INTEGER PRIMARY KEY AUTOINCREMENT
+	);
